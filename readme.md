@@ -136,7 +136,3 @@ For production use, consider integrating with:
 3. Commit changes  
 4. Push to branch  
 5. Create new Pull Request
-
-## License
-
-MIT License - See [LICENSE](LICENSE) for details
