@@ -14,7 +14,7 @@ def main():
     analyzer.add_rule(DefaultCasePositionAnalyzer())
     analyzer.add_rule(MagicNumberAnalyzer())
 
-    test_file = Path("test.cpp")
+    test_file = Path("av_zone_monitor.c")
     if test_file.exists():
         results = analyzer.analyze_file(test_file)
         for violation in results:

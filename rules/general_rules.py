@@ -1,5 +1,8 @@
 import re
-from ..core.base import SourceAnalyzer, RuleViolation
+import os
+import sys 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from core.base import SourceAnalyzer, RuleViolation
 
 class MagicNumberAnalyzer(SourceAnalyzer):
     def analyze(self, content: str) -> list[RuleViolation]:

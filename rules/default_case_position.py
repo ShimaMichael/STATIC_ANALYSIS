@@ -1,10 +1,13 @@
 import re
-from ..core.base import SourceAnalyzer, RuleViolation
+import os
+import sys 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from core.base import SourceAnalyzer, RuleViolation
 
 class DefaultCasePositionAnalyzer(SourceAnalyzer):
     def analyze(self, content: str) -> list[RuleViolation]:
         violations = []
-        switches = re.finditer(r'\bswitch\s*\([^)]+\)\s*\{([^}]+)\}', re.DOTALL)
+        switches = re.finditer(r'\bswitch\s*\([^)]+\)\s*\{([^}]+)\}', content,  re.DOTALL)
         
         for switch in switches:
             cases = list(re.finditer(r'(case\s|default\s*:).+?(?=case\s|default\s*:|$)', 
